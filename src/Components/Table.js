@@ -31,7 +31,7 @@ export const PeopleTable = () => {
 
     const searchPerson = (searchValue) => {
         // Filter visible names, restored by deleting values from the input
-        let filteredArr = [...peopleArr];
+        let filteredArr = [...storePeople];
 
         filteredArr = filteredArr.filter((person) =>
             `${person.name.toLowerCase()} ${person.lastName.toLowerCase()}`.includes(
