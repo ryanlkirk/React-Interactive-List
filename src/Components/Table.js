@@ -130,7 +130,9 @@ export const PeopleTable = () => {
                     <TableBody>
                         {peopleArr.map((person) => {
                             return (
-                                <TableRow key={`key-${person.id}`}>
+                                <TableRow
+                                    key={`key-${person.id}-${person.lastName}`}
+                                >
                                     <TableCell
                                         onClick={() => {
                                             deletePerson(person.id);
