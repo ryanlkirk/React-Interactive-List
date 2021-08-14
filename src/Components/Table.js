@@ -66,7 +66,6 @@ export const PeopleTable = () => {
             age: null,
             city: null,
         });
-
         setPeopleArr(personsArr);
     };
 
@@ -109,101 +108,111 @@ export const PeopleTable = () => {
 
     return (
         <section className={"people-table"}>
-            <TableFilters
-                sortByAge={sortByAge}
-                searchPerson={searchPerson}
-                prepSearch={prepSearch}
-            />
+            {peopleArr.length > 0 && (
+                <TableFilters
+                    sortByAge={sortByAge}
+                    searchPerson={searchPerson}
+                    prepSearch={prepSearch}
+                />
+            )}
 
             {saving && <MockSave />}
-            <section className="table-area">
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell></TableCell>
-                            <TableCell>Forename</TableCell>
-                            <TableCell>Surname</TableCell>
-                            <TableCell>Age</TableCell>
-                            <TableCell>City</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {peopleArr.map((person) => {
-                            return (
-                                <TableRow
-                                    key={`key-${person.id}-${person.lastName}`}
-                                >
-                                    <TableCell
-                                        onClick={() => {
-                                            deletePerson(person.id);
-                                        }}
+            {peopleArr.length > 0 && (
+                <section className="table-area">
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell></TableCell>
+                                <TableCell>Forename</TableCell>
+                                <TableCell>Surname</TableCell>
+                                <TableCell>Age</TableCell>
+                                <TableCell>City</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {peopleArr.map((person) => {
+                                return (
+                                    <TableRow
+                                        key={`key-${person.id}-${person.lastName}`}
                                     >
-                                        <span className="delete-person">x</span>
-                                    </TableCell>
-                                    <TableCell>
-                                        <input
-                                            type="text"
-                                            defaultValue={person.name}
-                                            onBlur={(e) => {
-                                                updateValue(
-                                                    person,
-                                                    "name",
-                                                    e.target.value
-                                                );
+                                        <TableCell
+                                            onClick={() => {
+                                                deletePerson(person.id);
                                             }}
-                                            placeholder="First Name"
-                                            required
-                                        ></input>
-                                    </TableCell>
-                                    <TableCell>
-                                        <input
-                                            type="text"
-                                            defaultValue={person.lastName}
-                                            onBlur={(e) => {
-                                                updateValue(
-                                                    person,
-                                                    "lastName",
-                                                    e.target.value
-                                                );
-                                            }}
-                                            placeholder="Last Name"
-                                        ></input>
-                                    </TableCell>
-                                    <TableCell>
-                                        <input
-                                            type="number"
-                                            defaultValue={person.age}
-                                            onBlur={(e) => {
-                                                updateValue(
-                                                    person,
-                                                    "age",
-                                                    e.target.value
-                                                );
-                                            }}
-                                            placeholder="Age"
-                                        ></input>
-                                    </TableCell>
-                                    <TableCell>
-                                        <input
-                                            type="text"
-                                            defaultValue={person.city}
-                                            onBlur={(e) => {
-                                                updateValue(
-                                                    person,
-                                                    "city",
-                                                    e.target.value
-                                                );
-                                            }}
-                                            placeholder="City"
-                                        ></input>
-                                    </TableCell>
-                                </TableRow>
-                            );
-                        })}
-                    </TableBody>
-                </Table>
-            </section>
-            <AddPersonButton addPerson={() => addPerson()} />
+                                        >
+                                            <span className="delete-person">
+                                                x
+                                            </span>
+                                        </TableCell>
+                                        <TableCell>
+                                            <input
+                                                type="text"
+                                                defaultValue={person.name}
+                                                onBlur={(e) => {
+                                                    updateValue(
+                                                        person,
+                                                        "name",
+                                                        e.target.value
+                                                    );
+                                                }}
+                                                placeholder="First Name"
+                                                required
+                                            ></input>
+                                        </TableCell>
+                                        <TableCell>
+                                            <input
+                                                type="text"
+                                                defaultValue={person.lastName}
+                                                onBlur={(e) => {
+                                                    updateValue(
+                                                        person,
+                                                        "lastName",
+                                                        e.target.value
+                                                    );
+                                                }}
+                                                placeholder="Last Name"
+                                            ></input>
+                                        </TableCell>
+                                        <TableCell>
+                                            <input
+                                                type="number"
+                                                defaultValue={person.age}
+                                                onBlur={(e) => {
+                                                    updateValue(
+                                                        person,
+                                                        "age",
+                                                        e.target.value
+                                                    );
+                                                }}
+                                                placeholder="Age"
+                                            ></input>
+                                        </TableCell>
+                                        <TableCell>
+                                            <input
+                                                type="text"
+                                                defaultValue={person.city}
+                                                onBlur={(e) => {
+                                                    updateValue(
+                                                        person,
+                                                        "city",
+                                                        e.target.value
+                                                    );
+                                                }}
+                                                placeholder="City"
+                                            ></input>
+                                        </TableCell>
+                                    </TableRow>
+                                );
+                            })}
+                        </TableBody>
+                    </Table>
+                </section>
+            )}
+
+            <AddPersonButton
+                addPerson={() => addPerson()}
+                noOfPeople={peopleArr.length}
+            />
         </section>
     );
 };

@@ -26,13 +26,10 @@ export const TableFilters = (props) => {
 };
 
 export const AddPersonButton = (props) => {
+    const { addPerson, noOfPeople } = props;
     return (
-        <div
-            key={`Add`}
-            className="add-person"
-            onClick={() => props.addPerson()}
-        >
-            +
+        <div key={`Add`} className="add-person" onClick={() => addPerson()}>
+            {noOfPeople <= 0 && <div>Add a new Person</div>}+
         </div>
     );
 };
