@@ -7,18 +7,75 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+html,
+body {
+    height: 100%;
+}
+
+.App {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
 
 .filters {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 15px;
 }
 
 .sort:hover {
     color: #7d7d7d;
     cursor: pointer;
+}
+
+.add-person {
+    font-size: 2rem;
+    margin-left: 11px;
+    color: #2e7225;
+}
+
+.delete-person {
+    font-size: 1.5rem;
+    color: #961010;
+}
+
+.add-person:hover,
+.delete-person:hover {
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    padding: 15px 0px;
+}
+
+input {
+    border: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+input:hover {
+    background-color: #f2f2f2;
+}
+
+.people-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
