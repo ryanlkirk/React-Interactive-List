@@ -13,7 +13,6 @@ body {
 }
 
 .App {
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -47,8 +46,9 @@ code {
 }
 
 .delete-person {
-    font-size: 1.5rem;
+    font-size: 0.8rem;
     color: #961010;
+    padding: 10px;
 }
 
 .add-person:hover,
@@ -70,6 +70,8 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: none;
+    box-shadow: 0px 0px 0px 1px #d5d5d5;
+    padding-left: 5px;
 }
 
 input:hover {
@@ -81,4 +83,11 @@ input:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.saving {
+    margin-top: 15px;
+    background-color: #fffa6d;
+    padding: 15px;
+    border-radius: 5px;
 }

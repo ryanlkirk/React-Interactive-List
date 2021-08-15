@@ -29,12 +29,13 @@ export const AddPersonButton = (props) => {
     const { addPerson, noOfPeople } = props;
     return (
         <div key={`Add`} className="add-person" onClick={() => addPerson()}>
-            {noOfPeople <= 0 && <div>Add a new Person</div>}+
+            {noOfPeople <= 0 && <div>Add a new Person</div>}
+            <span>&#43;</span>
         </div>
     );
 };
 
 export const MockSave = () => {
     // Mocking a basic UI save action behaviour
-    return <div>Saving Changes...</div>;
+    return <div className="saving">Saving Changes...</div>;
 };

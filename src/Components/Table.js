@@ -116,7 +116,6 @@ export const PeopleTable = () => {
                 />
             )}
 
-            {saving && <MockSave />}
             {peopleArr.length > 0 && (
                 <section className="table-area">
                     <Table>
@@ -141,7 +140,7 @@ export const PeopleTable = () => {
                                             }}
                                         >
                                             <span className="delete-person">
-                                                x
+                                                &#10060;
                                             </span>
                                         </TableCell>
                                         <TableCell>
@@ -213,6 +212,7 @@ export const PeopleTable = () => {
                 addPerson={() => addPerson()}
                 noOfPeople={peopleArr.length}
             />
+            {saving && <MockSave />}
         </section>
     );
 };
