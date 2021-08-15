@@ -1,4 +1,4 @@
-# React app demo app - Interactive list
+# React demo app - Interactive list
 
 This app is a simple interactive demo app with an interactive list.
 You can add, edit and delete people from the list. You can also sort and filter the list. It also mocks actions of saving and returning data from an API with a simple UI element emulating a save occuring to the user.
