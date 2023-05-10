@@ -43,24 +43,18 @@ export const PeopleTable = () => {
     };
 
     const addPerson = () => {
-        // Add new person to end of array
-        let personsArr = [...peopleArr];
-
-        // Find the last person, increment their ID or set to 1 if we have no people
-        let personId = peopleArr?.slice(-1)[0]?.id
-            ? peopleArr.slice(-1)[0].id + 1
-            : 1;
-
-        // Add a person to the end of the list, it wont save until a value is entered
-        personsArr.push({
+        const personId = peopleArr.length ? peopleArr[peopleArr.length - 1].id + 1 : 1;
+        const newPerson = {
             id: personId,
             name: null,
             lastName: null,
             age: null,
             city: null,
-        });
-        setPeopleArr(personsArr);
+        };
+        const updatedPeopleArr = [...peopleArr, newPerson];
+        setPeopleArr(updatedPeopleArr);
     };
+
 
     const deletePerson = (id) => {
         const updatedPeopleArr = peopleArr.filter((person) => person.id !== id);
