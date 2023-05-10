@@ -17,18 +17,11 @@ export const PeopleTable = () => {
     const [saving, setSaving] = useState(false);
     const [storePeople, setStorePeople] = useState([]);
 
-    const prepSearch = () => {
-        // A row can be added without adding data.
-        // If we had added one without entering a name, remove them.
-        setPeopleArr(
-            peopleArr.filter((person) => person.name || person.lastName)
-        );
-        // Fixed mock data is being pulled from an import
-        // Setting up a copy of the state of the data here before filtering down the data with a search
-        setStorePeople(
-            peopleArr.filter((person) => person.name || person.lastName)
-        );
-    };
+    const searchPeople = () => {
+        const filteredPeopleArr = peopleArr.filter((person) => person.name || person.lastName);
+        setPeopleArr(filteredPeopleArr);
+        setStorePeople(filteredPeopleArr);
+      };      
 
     const searchPerson = (searchValue) => {
         // Filter visible names, restored by deleting values from the input
@@ -112,7 +105,7 @@ export const PeopleTable = () => {
                 <TableFilters
                     sortByAge={sortByAge}
                     searchPerson={searchPerson}
-                    prepSearch={prepSearch}
+                    searchPeople={searchPeople}
                     noOfPeople={peopleArr.length}
                 />
             )}

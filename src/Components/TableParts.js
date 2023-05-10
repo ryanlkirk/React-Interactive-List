@@ -2,7 +2,7 @@ import React from "react";
 import { TextField, Button } from "@material-ui/core";
 
 export const TableFilters = (props) => {
-    const { searchPerson, prepSearch, sortByAge, noOfPeople } = props;
+    const { searchPerson, searchPeople, sortByAge, noOfPeople } = props;
     const blockInteract = noOfPeople < 2 ? true : false;
     return (
         <section className="filters">
@@ -14,9 +14,7 @@ export const TableFilters = (props) => {
                 variant="outlined"
                 label="Filter by Name"
                 onChange={(e) => searchPerson(e.target.value)}
-                onClick={() => {
-                    prepSearch();
-                }}
+                onClick={() => { searchPeople() }}
             />
 
             <Button disabled={blockInteract} className="sort" onClick={() => sortByAge()}>
