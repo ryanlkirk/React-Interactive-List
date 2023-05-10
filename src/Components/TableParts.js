@@ -7,7 +7,6 @@ export const TableFilters = (props) => {
     return (
         <section className="filters">
             <TextField
-                disabled={blockInteract}
                 size="small"
                 style={{ width: "80%", marginBottom: "5px" }}
                 name="searchBar"
