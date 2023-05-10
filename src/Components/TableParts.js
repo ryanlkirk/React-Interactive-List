@@ -2,10 +2,12 @@ import React from "react";
 import { TextField, Button } from "@material-ui/core";
 
 export const TableFilters = (props) => {
-    const { searchPerson, prepSearch, sortByAge } = props;
+    const { searchPerson, prepSearch, sortByAge, noOfPeople } = props;
+    const blockInteract = noOfPeople < 2 ? true : false;
     return (
         <section className="filters">
             <TextField
+                disabled={blockInteract}
                 size="small"
                 style={{ width: "80%", marginBottom: "5px" }}
                 name="searchBar"
@@ -18,7 +20,7 @@ export const TableFilters = (props) => {
                 }}
             />
 
-            <Button className="sort" onClick={() => sortByAge()}>
+            <Button disabled={blockInteract} className="sort" onClick={() => sortByAge()}>
                 Sort by Age
             </Button>
         </section>

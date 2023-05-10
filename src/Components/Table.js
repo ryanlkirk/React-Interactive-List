@@ -114,6 +114,7 @@ export const PeopleTable = () => {
                     sortByAge={sortByAge}
                     searchPerson={searchPerson}
                     prepSearch={prepSearch}
+                    noOfPeople={peopleArr.length}
                 />
             )}
 
