@@ -34,8 +34,3 @@ export const AddPersonButton = (props) => {
         </div>
     );
 };
-
-export const MockSave = () => {
-    // Mocking a basic UI save action behaviour
-    return <div className="saving">Saving Changes...</div>;
-};

@@ -8,7 +8,8 @@ import { TableBody } from "@material-ui/core";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import { TableFilters, AddPersonButton, MockSave } from "./TableParts";
+import { TableFilters, AddPersonButton } from "./TableParts";
+import { MockSave } from "./mockInteraction";
 
 export const PeopleTable = () => {
     const [peopleArr, setPeopleArr] = useState(People);
