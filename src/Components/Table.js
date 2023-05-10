@@ -34,18 +34,17 @@ export const PeopleTable = () => {
         // Filter visible names, restored by deleting values from the input
         let filteredArr = [...storePeople];
 
-        filteredArr = filteredArr.filter((person) =>
-            `${person.name.toLowerCase()} ${person.lastName.toLowerCase()}`.includes(
-                searchValue.toLowerCase()
-            )
-        );
+        filteredArr = filteredArr.filter((person) => {
+            const fullName = `${(person.name || '').toLowerCase()} ${(person.lastName || '').toLowerCase()}`;
+            return fullName.includes(searchValue.toLowerCase());
+        });
 
         if (!searchValue) {
             // Reset pupils to the state it was before filtering started
             setPeopleArr(storePeople);
         } else {
             // Filter the pupils down to just the one we want
-            // Fine to filter this way as its not attached to any real stored data
+            // Fine to filter this way as it's not attached to any real stored data
             setPeopleArr(filteredArr);
         }
     };
