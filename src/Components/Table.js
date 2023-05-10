@@ -21,7 +21,7 @@ export const PeopleTable = () => {
         const filteredPeopleArr = peopleArr.filter((person) => person.name || person.lastName);
         setPeopleArr(filteredPeopleArr);
         setStorePeople(filteredPeopleArr);
-      };      
+    };
 
     const searchPerson = (searchValue) => {
         // Filter visible names, restored by deleting values from the input
@@ -63,8 +63,8 @@ export const PeopleTable = () => {
     };
 
     const deletePerson = (id) => {
-        // Directly remove person from people state
-        setPeopleArr([...peopleArr].filter((person) => person.id !== id));
+        const updatedPeopleArr = peopleArr.filter((person) => person.id !== id);
+        setPeopleArr(updatedPeopleArr);
     };
 
     const sortByAge = () => {
